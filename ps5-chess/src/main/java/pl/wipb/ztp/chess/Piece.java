@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.IOException;
 
-class Piece {
+class Piece implements InterfacePiece{
 	public static final int TILESIZE = 32;
 	private static Image image;
 	
@@ -25,7 +25,7 @@ class Piece {
 	}
 
 	public void draw(Graphics2D g) {
-		g.drawImage(image, x, y, x + TILESIZE, y + TILESIZE, index * TILESIZE, 0, (index + 1) * TILESIZE, TILESIZE,
+		g.drawImage(image, x, y, x + 1, y + 1, index * TILESIZE, 0, (index + 1) * TILESIZE, TILESIZE,
 				null);
 	}
 
@@ -40,5 +40,8 @@ class Piece {
 	public void moveTo(int xx, int yy) {
 		x = xx;
 		y = yy;
+	}
+	public InterfacePiece UnDecorate() {
+		return null;
 	}
 }
